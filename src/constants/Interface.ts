@@ -3,6 +3,7 @@ export interface Login {
 }
 
 export interface Categories {
+    id: number,
     text: string,
     screen: string
 }

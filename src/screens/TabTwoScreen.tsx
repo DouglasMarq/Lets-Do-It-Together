@@ -7,10 +7,12 @@ import { Categories } from '../constants/Interface';
 export default function TabTwoScreen() {
     const [categories, setCategories] = useState<Categories[]>([
         {
+            id: 1,
             text: `Principios`,
             screen: `test1`,
         },
         {
+            id: 2,
             text: `Metodologias`,
             screen: `test2`,
         },
@@ -30,7 +32,7 @@ export default function TabTwoScreen() {
                     <styles.Container>
                         {categories.map((item: Categories) => {
                             return (
-                                <styles.RoundButton onPress={() => categoryChoosen(item.screen)}>
+                                <styles.RoundButton key={item.id} onPress={() => categoryChoosen(item.screen)}>
                                     <Text>{item.text}</Text>
                                 </styles.RoundButton>
                             );
