@@ -30,6 +30,11 @@ const linking: LinkingOptions<RootStackParamList> = {
                             RegisterOrLogin: 'RegisterOrLogin',
                         },
                     },
+                    Settings: {
+                        screens: {
+                            Settings: 'Settings',
+                        },
+                    },
                 },
             },
             Modal: 'modal',

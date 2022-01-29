@@ -1,37 +1,52 @@
 import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
+import { Button, Text, ButtonProps } from 'react-native-ui-lib';
+import { useState } from 'react';
+import { Categories } from '../constants/Interface';
 
 export default function TabTwoScreen() {
+    const [categories, setCategories] = useState<Categories[]>([
+        {
+            text: `Principios`,
+            screen: `test1`,
+        },
+        {
+            text: `Metodologias`,
+            screen: `test2`,
+        },
+    ]);
+
+    function categoryChoosen(screen: string) {
+        console.log(`button pressed ${screen}`);
+    }
+
     return (
         <styles.Main>
             <styles.Header>
-                <styles.Text>Escolha sua categoria</styles.Text>
+                <Text>Escolha sua categoria</Text>
             </styles.Header>
-            <styles.AnotherView>
+            <styles.Div>
                 <styles.ScrollView>
                     <styles.Container>
-                        <styles.Card></styles.Card>
-                        <styles.Card></styles.Card>
-                        <styles.Card></styles.Card>
-                        <styles.Card></styles.Card>
-                        <styles.Card></styles.Card>
-                        <styles.Card></styles.Card>
-                        <styles.Card></styles.Card>
-                        <styles.Card></styles.Card>
-                        <styles.Card></styles.Card>
-                        <styles.Card></styles.Card>
-                        <styles.Card></styles.Card>
+                        {categories.map((item: Categories) => {
+                            return (
+                                <styles.RoundButton onPress={() => categoryChoosen(item.screen)}>
+                                    <Text>{item.text}</Text>
+                                </styles.RoundButton>
+                            );
+                        })}
                     </styles.Container>
                 </styles.ScrollView>
-            </styles.AnotherView>
+            </styles.Div>
         </styles.Main>
     );
 }
 
+
 const styles = {
     Main: styled.SafeAreaView`
         width: 100%;
-        height: ${Dimensions.get('window').height - 140};
+        height: ${Dimensions.get('window').height - 140}px;
     `,
     Header: styled.View`
         height: 45px;
@@ -49,7 +64,7 @@ const styles = {
     Text: styled.Text`
 
     `,
-    AnotherView: styled.View`
+    Div: styled.View`
         height: 100%;
     `,
     Container: styled.View`
@@ -58,14 +73,21 @@ const styles = {
         display: flex;
         justify-content: space-between;
         align-items: center;
-
         `,
     Card: styled.View`
         width: 320px;
         height: 120px;
         background-color: #fff;
         margin-top: 30px;
-        border-radius: 15;
+        border-radius: 15px;
         box-shadow: rgba(0,0,0,0.18) 1px 1px 8px;
     `,
+    RoundButton: styled(Button)`
+    width: 320px;
+    height: 120px;
+    margin-top: 30px;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: rgba(0,0,0,0.18) 1px 1px 8px;
+    ` as React.ComponentType<ButtonProps>,
 };

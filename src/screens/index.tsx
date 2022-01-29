@@ -11,9 +11,9 @@ import { ColorSchemeName } from 'react-native';
 import BottomTabNavigator from '../components/BottomTabNavigator';
 import ModalScreen from './ModalScreen';
 import NotFoundScreen from './NotFoundScreen';
-import { RootStackParamList } from '../constants/Types';
+import { RootStackParamList } from '../constants/types';
 import LinkingConfiguration from './LinkingConfiguration';
-import { loginContext } from '../context/LoginContext';
+import { LoginContext } from '../context/LoginContext';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
     const [loggedIn, setLogin] = useState(false);
@@ -32,7 +32,7 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
         <NavigationContainer
             linking={LinkingConfiguration}
             theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-            <loginContext.Provider value={{ loggedIn }}>
+            <LoginContext.Provider value={{ loggedIn }}>
                 <Stack.Navigator>
                     <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
                     <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
@@ -40,7 +40,7 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
                         <Stack.Screen name="Modal" component={ModalScreen} />
                     </Stack.Group>
                 </Stack.Navigator>
-            </loginContext.Provider>
+            </LoginContext.Provider>
         </NavigationContainer>
     );
 }

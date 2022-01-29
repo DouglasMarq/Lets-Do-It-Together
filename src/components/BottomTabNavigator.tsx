@@ -11,7 +11,7 @@ import TabTwoScreen from '../screens/TabTwoScreen';
 import { Pressable } from 'react-native';
 import TabBarIcon from './TabBarIcon';
 import { FontAwesome } from '@expo/vector-icons';
-import { loginContext } from '../context/LoginContext';
+import { LoginContext } from '../context/LoginContext';
 
 /**
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
@@ -21,7 +21,7 @@ const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 export default function BottomTabNavigator() {
     const colorScheme = useColorScheme();
-    const { loggedIn } = useContext(loginContext);
+    const { loggedIn } = useContext(LoginContext);
 
     return (
         <BottomTab.Navigator
