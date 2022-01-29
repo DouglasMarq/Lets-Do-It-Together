@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/node,yarn,react,reactnative
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,yarn,react,reactnative
+# Created by https://www.toptal.com/developers/gitignore/api/node,yarn,react,reactnative,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,yarn,react,reactnative,visualstudiocode
 
 ### Node ###
 # Logs
@@ -338,6 +338,27 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# Support for Project snippet scope
+
 ### yarn ###
 # https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
 
@@ -355,4 +376,4 @@ Temporary Items
 # and uncomment the following lines
 # .pnp.*
 
-# End of https://www.toptal.com/developers/gitignore/api/node,yarn,react,reactnative
+# End of https://www.toptal.com/developers/gitignore/api/node,yarn,react,reactnative,visualstudiocode
