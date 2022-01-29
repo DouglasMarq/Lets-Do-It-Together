@@ -11,7 +11,7 @@ import { ColorSchemeName } from 'react-native';
 import BottomTabNavigator from '../components/BottomTabNavigator';
 import ModalScreen from './ModalScreen';
 import NotFoundScreen from './NotFoundScreen';
-import { RootStackParamList } from '../constants/types';
+import { RootStackParamList } from '../constants/Types';
 import LinkingConfiguration from './LinkingConfiguration';
 import { loginContext } from '../context/LoginContext';
 

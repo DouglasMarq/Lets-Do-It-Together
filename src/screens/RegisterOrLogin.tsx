@@ -2,9 +2,9 @@ import { StyleSheet } from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
-import { RootTabScreenProps } from '../constants/types';
+import { RootTabScreenProps } from '../constants/Types';
 
-export default function RegisterOrLogin({ navigation }: RootTabScreenProps<'TabOne'>) {
+export default function RegisterOrLogin({ navigation }: RootTabScreenProps<'RegisterOrLogin'>) {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Tab One</Text>

@@ -1,10 +1,11 @@
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { RootTabParamList, RootTabScreenProps } from '../constants/types';
+import { RootTabParamList, RootTabScreenProps } from '../constants/Types';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import React, { useContext } from 'react';
 import RegisterOrLogin from '../screens/RegisterOrLogin';
+import Settings from '../screens/Settings';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { Pressable } from 'react-native';
@@ -24,7 +25,7 @@ export default function BottomTabNavigator() {
 
     return (
         <BottomTab.Navigator
-            initialRouteName="TabOne"
+            initialRouteName="TabTwo"
             screenOptions={{
                 tabBarActiveTintColor: Colors[colorScheme].tint,
             }}>
@@ -75,6 +76,14 @@ export default function BottomTabNavigator() {
                         }}
                     />
             }
+            <BottomTab.Screen
+                component={Settings}
+                name='Settings'
+                options={{
+                    title: 'Settings',
+                    tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+                    headerShown: false,
+                }}/>
         </BottomTab.Navigator>
     );
 }

@@ -4,7 +4,7 @@ import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../constants/Types';
 
-export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+export default function Settings({ navigation }: RootTabScreenProps<'Settings'>) {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Tab One</Text>
