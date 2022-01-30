@@ -1,10 +1,13 @@
 import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 import { Button, Text, ButtonProps } from 'react-native-ui-lib';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Categories } from '../constants/Interface';
+import { NavigationContext } from '@react-navigation/native';
 
 export default function TabTwoScreen() {
+    const navigation = useContext(NavigationContext);
+
     const [categories, setCategories] = useState<Categories[]>([
         {
             id: 1,
@@ -16,10 +19,27 @@ export default function TabTwoScreen() {
             text: `Metodologias`,
             screen: `test2`,
         },
+        {
+            id: 3,
+            text: `Algoritmos`,
+            screen: `test3`,
+        },
+        {
+            id: 4,
+            text: `Arquitetura`,
+            screen: `test4`,
+        },
+        {
+            id: 5,
+            text: `SQL/noSQL`,
+            screen: `test5`,
+        },
     ]);
 
     function categoryChoosen(screen: string) {
         console.log(`button pressed ${screen}`);
+
+        navigation!.navigate('PrincipleQuestions');
     }
 
     return (
@@ -48,7 +68,7 @@ export default function TabTwoScreen() {
 const styles = {
     Main: styled.SafeAreaView`
         width: 100%;
-        height: ${Dimensions.get('window').height - 140}px;
+        height: ${Dimensions.get('window').height - 125}px;
     `,
     Header: styled.View`
         height: 45px;
@@ -86,7 +106,7 @@ const styles = {
     `,
     RoundButton: styled(Button)`
     width: 320px;
-    height: 120px;
+    height: 110px;
     margin-top: 30px;
     border-radius: 20px;
     background-color: #fff;
